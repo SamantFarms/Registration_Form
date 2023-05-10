@@ -5,8 +5,8 @@ import axios from "axios";
 import { S3 } from "aws-sdk";
 
 const s3 = new S3({
-  accessKeyId: "AKIA3KZVK3RM6V72UAHV",
-  secretAccessKey: "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",
+  accessKeyId: "XX",
+  secretAccessKey: "XX",
   region: "ap-south-1",
 });
 
