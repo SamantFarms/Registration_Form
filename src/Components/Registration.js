@@ -94,7 +94,8 @@ export default function Registration() {
       !lastName ||
       !mobileNumber ||
       !password ||
-      !confirmPassword
+      !confirmPassword ||
+      profilePicture == null
     ) {
       alert("Some fields are empty, Please fill all the fields");
     } 
