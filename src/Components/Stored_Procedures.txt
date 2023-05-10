@@ -1,0 +1,63 @@
+// select procedure 
+
+DELIMITER $$
+CREATE PROCEDURE select_all_records(IN contact_db VARCHAR(50))
+BEGIN
+    SELECT * FROM contact_db;
+END$$
+DELIMITER ;
+
+//Create procedure 
+
+DELIMITER $$
+CREATE PROCEDURE create_table (IN contact_db VARCHAR(50), IN id int, IN updated_by VARCHAR(50), IN updated_date VARCHAR(50), IN created_by VARCHAR(50), IN created_date VARCHAR(50), IN firstName VARCHAR(50), IN lastName VARCHAR(50), IN mobileNumber VARCHAR(50), IN password VARCHAR(50))
+BEGIN
+    CREATE TABLE contact_db (
+        id int,
+        updated_by VARCHAR(50),
+        updated_date VARCHAR(50),
+        created_by VARCHAR(50),
+        created_date VARCHAR(50),
+        firstName VARCHAR(50),
+        lastName VARCHAR(50),
+        password VARCHAR(50)
+    );
+END$$
+DELIMITER ;
+
+// Insert procedure 
+
+DELIMITER $$
+CREATE PROCEDURE insert_record(IN contact_db VARCHAR(50), IN id int, IN updated_by VARCHAR(50), IN updated_date VARCHAR(50), IN created_by VARCHAR(50), IN created_date VARCHAR(50), IN firstName VARCHAR(50), IN lastName VARCHAR(50), IN mobileNumber VARCHAR(50), IN password VARCHAR(50))
+BEGIN
+    INSERT INTO contact_db (id int,
+        updated_by ,
+        updated_date,
+        created_by ,
+        created_date ,
+        firstName ,
+        lastName ,
+        password )
+    VALUES (?,?,?,?,?,?,?,?);
+END$$
+DELIMITER ;
+
+// Update procedure 
+
+DELIMITER $$
+CREATE PROCEDURE update_record(IN contact_db VARCHAR(50), IN id int, IN updated_by VARCHAR(50), IN updated_date VARCHAR(50), IN created_by VARCHAR(50), IN created_date VARCHAR(50), IN firstName VARCHAR(50), IN lastName VARCHAR(50), IN mobileNumber VARCHAR(50), IN password VARCHAR(50))
+BEGIN
+    UPDATE contact_db
+    SET id = column1, updated_by = column2, updated_date = column3, created_by = column4, created_date = column5, firstName = column6, lastName= column7 , mobileNumber = column8
+    WHERE id = record_id;
+END$$
+DELIMITER ;
+
+// Delete procedure 
+
+DELIMITER $$
+CREATE PROCEDURE delete_record(IN contact_db VARCHAR(50), IN record_id INT)
+BEGIN
+    DELETE FROM contact_db WHERE id = record_id;
+END$$
+DELIMITER ;
